@@ -141,6 +141,12 @@ picture {
     max-width: 100%;
 }
 
+figure,
+ul,
+ol {
+    margin: 0;
+}
+
 a {
     color: inherit;
     text-decoration: none;
@@ -479,7 +485,7 @@ button {
 }
 
 .hero {
-    padding-block: clamp(3rem, 6vw, 5rem) var(--section-space);
+    padding-block: 0;
 }
 
 .hero__stage {
@@ -531,7 +537,7 @@ button {
     display: grid;
     align-content: end;
     min-height: clamp(36rem, calc(100svh - var(--header-height)), 49rem);
-    padding-block: clamp(5rem, 9vw, 7rem) clamp(2rem, 4vw, 3rem);
+    padding-block: clamp(4.6rem, 8vw, 6.4rem) clamp(2rem, 4vw, 3rem);
 }
 
 .hero__content > * {
@@ -675,7 +681,9 @@ button {
 
 .media-frame {
     position: relative;
+    display: grid;
     overflow: clip;
+    margin: 0;
 }
 
 .media-frame::after {
@@ -940,8 +948,14 @@ button {
     block-size: 100%;
 }
 
+.department-card__media {
+    margin: 0;
+    overflow: hidden;
+}
+
 .department-card__media img {
     object-fit: cover;
+    object-position: center;
     filter: grayscale(100%) contrast(1.03) brightness(0.62);
     transition: transform 420ms ease, filter 320ms ease;
 }
@@ -1066,9 +1080,14 @@ button {
     display: grid;
     min-height: 100%;
     align-self: stretch;
+    margin: 0;
+    overflow: hidden;
 }
 
 .event-feature__media img {
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
     object-position: center;
 }
 
@@ -1517,16 +1536,14 @@ button {
     }
 
     .departments .section-note {
-        max-width: 100%;
-        font-size: 0.9rem;
-        line-height: 1.45;
+        display: none;
     }
 
     .departments .section-copy h2,
     .events__copy h2 {
         max-width: 11ch;
         font-size: clamp(1.55rem, 7.2vw, 2.2rem);
-        line-height: 0.96;
+        line-height: 1;
     }
 
     .departments .section-copy--row {
@@ -1602,6 +1619,7 @@ button {
     .event-feature__body h3 {
         max-width: 10ch;
         font-size: clamp(1.45rem, 7vw, 2rem);
+        line-height: 1;
     }
 
     .event-feature {
@@ -1639,10 +1657,6 @@ button {
 
     .icon-link svg text {
         font-size: 0.5rem;
-    }
-
-    .departments .section-note {
-        display: none;
     }
 
     .brand__mark {
