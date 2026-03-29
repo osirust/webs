@@ -3,38 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Бизнес-клуб СПбПУ — студенческое сообщество для тех, кто хочет запускать идеи, развивать проекты и расти в сильной команде.">
+    <meta name="description" content="Бизнес-клуб СПбПУ — студенческое сообщество для тех, кто хочет собирать команды, запускать идеи и расти в сильной студенческой среде.">
     <title>Бизнес-клуб СПбПУ</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Unbounded:wght@500;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Unbounded:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/style.css">
 </head>
 <body>
     <div class="page-shell">
-        <canvas class="motion-field" id="motion-field" aria-hidden="true"></canvas>
         <header class="site-header" id="top">
             <div class="container site-header__inner">
                 <a class="brand" href="#top" aria-label="На главную">
                     <span class="brand__mark">БК</span>
                     <span class="brand__text">
                         <span class="brand__title">Business Club SPBPU</span>
-                        <span class="brand__subtitle">Территория идей и роста</span>
+                        <span class="brand__subtitle">Бизнес-клуб СПбПУ</span>
                     </span>
                 </a>
+
                 <nav class="site-nav" id="site-nav" aria-label="Основная навигация">
-                    <a href="#about">О нас</a>
-                    <a href="#numbers">Мы в цифрах</a>
+                    <a href="#about">О клубе</a>
                     <a href="#departments">Отделы</a>
                     <a href="#events">Мероприятия</a>
                     <a href="#faq">FAQ</a>
                     <a href="#contact">Контакты</a>
                 </nav>
-                <div class="header-links" aria-label="Социальные сети">
-                    <a href="https://t.me/economicclubru" target="_blank" rel="noreferrer">TG</a>
-                    <a href="https://vk.com/businessclub_spbpu" target="_blank" rel="noreferrer">VK</a>
-                    <a href="https://ekp-events.timepad.ru/" target="_blank" rel="noreferrer">AF</a>
+
+                <div class="header-actions" aria-label="Социальные сети">
+                    <a class="icon-link" href="https://t.me/economicclubru" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M20.85 4.61 3.9 11.34a.83.83 0 0 0 .08 1.58l4.05 1.23 1.54 4.71a.83.83 0 0 0 1.45.26l2.34-3.12 4.41 3.23a.83.83 0 0 0 1.3-.5l2.62-13.16a.83.83 0 0 0-1.12-.96Z"/>
+                        </svg>
+                    </a>
+                    <a class="icon-link" href="https://vk.com/businessclub_spbpu" target="_blank" rel="noopener noreferrer" aria-label="ВКонтакте">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <text x="12" y="15.6" text-anchor="middle">VK</text>
+                        </svg>
+                    </a>
+                    <a class="icon-link" href="https://ekp-events.timepad.ru/" target="_blank" rel="noopener noreferrer" aria-label="Афиша мероприятий">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M7 2v3M17 2v3M4 8h16M5 5h14a1 1 0 0 1 1 1v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a1 1 0 0 1 1-1Zm3 7h3v3H8zm5 0h3v3h-3z"/>
+                        </svg>
+                    </a>
                 </div>
+
                 <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
                     <span></span>
                     <span></span>
@@ -46,258 +59,256 @@
 
         <main>
             <section class="section hero" aria-labelledby="hero-title">
-                <div class="hero__backdrop" aria-hidden="true">
-                    <div class="hero__beam hero__beam--left"></div>
-                    <div class="hero__beam hero__beam--right"></div>
-                    <div class="hero__word hero__word--top">Будущее</div>
-                    <div class="hero__word hero__word--left">Рост</div>
-                    <div class="hero__word hero__word--right">Развитие</div>
-                    <div class="hero__word hero__word--bottom">Успех</div>
-                    <div class="hero__mesh"></div>
-                    <div class="hero__emblem">
-                        <svg viewBox="0 0 520 520" role="presentation" aria-hidden="true">
-                            <circle cx="260" cy="260" r="220" pathLength="100" />
-                            <text x="142" y="318">Б</text>
-                            <text x="276" y="318">К</text>
-                        </svg>
-                    </div>
-                </div>
+                <figure class="hero__stage" aria-hidden="true">
+                    <picture class="hero__picture">
+                        <source media="(min-width: 72rem)" srcset="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=2000&q=80">
+                        <source media="(min-width: 48rem)" srcset="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1440&q=80">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=960&q=80" alt="" width="2000" height="1333" sizes="100vw" fetchpriority="high" decoding="async">
+                    </picture>
+                    <div class="hero__shade"></div>
+                    <svg class="hero__emblem" viewBox="0 0 520 520" role="presentation" aria-hidden="true">
+                        <circle cx="260" cy="260" r="220"/>
+                        <text x="142" y="318">Б</text>
+                        <text x="276" y="318">К</text>
+                    </svg>
+                </figure>
+
                 <div class="container hero__content">
-                    <p class="section-kicker" data-reveal>Студенческое объединение ИПМЭиТ</p>
+                    <p class="hero__eyebrow" data-reveal>Business Club SPBPU</p>
                     <h1 id="hero-title" data-reveal>Вступай в Бизнес-клуб СПбПУ</h1>
                     <p class="hero__lead" data-reveal>
-                        Пространство, где студенты собирают команды, запускают идеи, пробуют себя в бизнесе, маркетинге,
-                        IT, дизайне и продакте, а затем превращают амбиции в реальные проекты.
+                        Пространство для студентов, которые хотят не просто учиться, а запускать идеи,
+                        собирать команды, делать события и превращать амбиции в живые проекты.
                     </p>
                     <div class="hero__actions" data-reveal>
-                        <a class="button button--primary" href="https://t.me/mmmmras" target="_blank" rel="noreferrer">Написать нам</a>
-                        <a class="button button--secondary" href="#departments">Смотреть отделы</a>
+                        <a class="button button--primary" href="https://t.me/mmmmras" target="_blank" rel="noopener noreferrer">Написать нам</a>
+                        <a class="button button--ghost" href="#departments">Посмотреть отделы</a>
                     </div>
-                    <ul class="hero__stats" data-reveal>
-                        <li>
-                            <strong>100+</strong>
-                            <span>участников собирают наши большие открытые форматы</span>
-                        </li>
-                        <li>
-                            <strong>50+</strong>
-                            <span>спикеров, экспертов и партнёрских касаний за сезон</span>
-                        </li>
-                        <li>
-                            <strong>4</strong>
-                            <span>основных направления, в которых можно расти внутри клуба</span>
-                        </li>
-                    </ul>
                 </div>
             </section>
 
             <section class="section about" id="about">
-                <div class="container">
-                    <div class="section-heading" data-reveal>
-                        <p class="section-kicker">О нас</p>
-                        <h2>Не просто клуб, а рабочая площадка для сильных идей</h2>
+                <div class="container about__grid">
+                    <div class="section-copy about__copy" data-reveal>
+                        <p class="section-tag">О клубе</p>
+                        <h2>Не просто клуб, а среда, где идеи доходят до результата</h2>
+                        <p>
+                            Бизнес-клуб СПбПУ объединяет студентов Политеха, ИПМЭиТ и других вузов Петербурга,
+                            которым интересно делать больше обычной учёбы: запускать инициативы, строить сообщество,
+                            пробовать роли в команде и работать над проектами вместе.
+                        </p>
+                        <p>
+                            Здесь учатся договариваться, брать ответственность, проверять гипотезы и собирать опыт,
+                            который остаётся не в заметках, а в реальных кейсах, знакомствах и собственных форматах.
+                        </p>
                     </div>
-                    <div class="about__grid">
-                        <article class="glass-card about__story" data-reveal>
-                            <p class="about__text">
-                                Бизнес-клуб — это пространство, где идеи и проекты реализуются вместе со всей командой.
-                                Здесь нормально ошибаться, искать ответы, учиться договариваться, брать ответственность
-                                и собирать опыт, который останется с тобой надолго.
-                            </p>
-                            <p class="about__text about__text--muted">
-                                Мы объединяем студентов Политеха, ИПМЭиТ и других вузов Санкт-Петербурга вокруг
-                                предпринимательства, карьеры, сообщества и практики.
-                            </p>
-                        </article>
-                        <article class="glass-card about__focus" data-reveal>
-                            <h3>Мы работаем в четырёх ключевых направлениях</h3>
-                            <ol class="focus-list">
-                                <li>IT</li>
-                                <li>Маркетинг</li>
-                                <li>Дизайн</li>
-                                <li>Продакт-менеджмент</li>
-                            </ol>
-                            <p class="about__footnote">
-                                У каждого направления своя роль, но вся система работает как одна команда.
-                            </p>
-                        </article>
-                    </div>
-                </div>
-            </section>
 
-            <section class="section impact" id="numbers">
-                <div class="container">
-                    <div class="section-heading section-heading--compact" data-reveal>
-                        <p class="section-kicker">Мы в цифрах</p>
-                        <h2>Рост, который видно не только внутри команды</h2>
-                    </div>
-                    <div class="impact__grid">
-                        <article class="metric-card" data-reveal>
+                    <figure class="media-frame about__media" data-reveal>
+                        <picture>
+                            <source media="(min-width: 72rem)" srcset="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=1600&q=80">
+                            <source media="(min-width: 48rem)" srcset="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=1200&q=80">
+                            <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=900&q=80" alt="Участники клубного события обсуждают идеи и общаются после выступления" width="1600" height="1067" sizes="(min-width: 64rem) 42vw, 100vw" loading="lazy" decoding="async">
+                        </picture>
+                    </figure>
+
+                    <div class="stats-panel" data-reveal>
+                        <article class="stat-card">
                             <strong>100+</strong>
-                            <span>студентов приняли участие в наших крупнейших форумах и открытых встречах</span>
+                            <p>участников собирают наши ключевые открытые форматы</p>
                         </article>
-                        <article class="metric-card" data-reveal>
+                        <article class="stat-card">
                             <strong>50+</strong>
-                            <span>спикеров, экспертов и гостей помогли нам сделать программы по-настоящему прикладными</span>
+                            <p>спикеров, экспертов и гостей усилили сезон практическими темами</p>
                         </article>
-                        <article class="metric-card" data-reveal>
+                        <article class="stat-card">
                             <strong>20+</strong>
-                            <span>партнёрств, коллабораций и форматов дали сообществу новый масштаб</span>
+                            <p>партнёрств, коллабораций и форматов дали клубу новый масштаб</p>
                         </article>
                     </div>
+
+                    <article class="directions-panel" data-reveal>
+                        <p class="section-tag">Направления</p>
+                        <h3>Четыре команды, одна система</h3>
+                        <ol class="focus-list">
+                            <li>IT</li>
+                            <li>Маркетинг</li>
+                            <li>Дизайн</li>
+                            <li>Продакт-менеджмент</li>
+                        </ol>
+                        <p>У каждого направления своя роль, но вместе они собирают один цельный продукт и одно сильное сообщество.</p>
+                    </article>
                 </div>
             </section>
 
             <section class="section departments" id="departments">
                 <div class="container">
-                    <div class="section-heading section-heading--split" data-reveal>
+                    <div class="section-copy section-copy--row" data-reveal>
                         <div>
-                            <p class="section-kicker">Команда</p>
-                            <h2>Наши отделы</h2>
+                            <p class="section-tag">Отделы</p>
+                            <h2>Команда, в которой есть куда расти</h2>
                         </div>
-                        <p class="section-hint">Листай карточки, чтобы узнать, как устроен клуб изнутри</p>
+                        <p class="section-note">Листай карточки нативно: на телефоне пальцем, на десктопе колесом или кнопками.</p>
                     </div>
-                    <div class="carousel" data-carousel data-start-index="1">
-                        <button class="carousel__control" type="button" aria-label="Предыдущий отдел" data-prev>
-                            <span>&larr;</span>
-                        </button>
-                        <div class="carousel__viewport" data-viewport>
-                            <div class="carousel__track" data-track>
-                                <article class="department-card" style="--card-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1400&q=80');">
-                                    <span class="department-card__label">Продакт</span>
+
+                    <div class="snap-carousel" data-carousel>
+                        <div class="snap-carousel__controls" data-reveal>
+                            <button class="carousel-button" type="button" aria-label="Предыдущий отдел" data-prev>&larr;</button>
+                            <div class="snap-carousel__dots" data-dots></div>
+                            <button class="carousel-button" type="button" aria-label="Следующий отдел" data-next>&rarr;</button>
+                        </div>
+
+                        <div class="snap-carousel__scroller" data-scroller>
+                            <article class="department-card" data-slide>
+                                <picture class="department-card__media">
+                                    <source media="(min-width: 72rem)" srcset="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1400&q=80">
+                                    <source media="(min-width: 48rem)" srcset="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1080&q=80">
+                                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=760&q=80" alt="Рабочая сессия продакт-команды с заметками и стикерами на стене" width="1400" height="933" sizes="(min-width: 72rem) 30rem, (min-width: 48rem) 42rem, 84vw" loading="lazy" decoding="async">
+                                </picture>
+                                <div class="department-card__body">
+                                    <p class="department-card__meta">Продакт</p>
                                     <h3>Продакт-менеджмент</h3>
-                                    <p class="department-card__quote">Связующее звено между всеми отделами.</p>
-                                    <p class="department-card__description">
-                                        Мы формируем видение продукта, расставляем приоритеты и ведём команду от
-                                        первоначальной гипотезы к реальному результату, который действительно нужен пользователям.
+                                    <p class="department-card__lead">Связующее звено между всеми отделами.</p>
+                                    <p class="department-card__text">
+                                        Формируем видение продукта, собираем приоритеты и ведём команду от гипотезы
+                                        к результату, который действительно нужен пользователям.
                                     </p>
-                                </article>
-                                <article class="department-card" style="--card-image: url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=80');">
-                                    <span class="department-card__label">Маркетинг</span>
+                                </div>
+                            </article>
+
+                            <article class="department-card" data-slide>
+                                <picture class="department-card__media">
+                                    <source media="(min-width: 72rem)" srcset="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=80">
+                                    <source media="(min-width: 48rem)" srcset="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1080&q=80">
+                                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=760&q=80" alt="Команда маркетинга обсуждает идеи контента за общим столом" width="1400" height="933" sizes="(min-width: 72rem) 30rem, (min-width: 48rem) 42rem, 84vw" loading="lazy" decoding="async">
+                                </picture>
+                                <div class="department-card__body">
+                                    <p class="department-card__meta">Маркетинг</p>
                                     <h3>Маркетинг</h3>
-                                    <p class="department-card__quote">Голос проекта и мост между идеей и аудиторией.</p>
-                                    <p class="department-card__description">
-                                        Наша задача — услышать рынок, упаковать сильную историю и построить вокруг
-                                        продуктов и событий живое сообщество, в которое хочется возвращаться.
+                                    <p class="department-card__lead">Голос проекта и мост между идеей и аудиторией.</p>
+                                    <p class="department-card__text">
+                                        Слушаем рынок, упаковываем сильную историю и выстраиваем вокруг клуба
+                                        живое сообщество, к которому хочется возвращаться.
                                     </p>
-                                </article>
-                                <article class="department-card" style="--card-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1400&q=80');">
-                                    <span class="department-card__label">IT</span>
+                                </div>
+                            </article>
+
+                            <article class="department-card" data-slide>
+                                <picture class="department-card__media">
+                                    <source media="(min-width: 72rem)" srcset="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1400&q=80">
+                                    <source media="(min-width: 48rem)" srcset="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1080&q=80">
+                                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=760&q=80" alt="IT-команда работает за ноутбуками и обсуждает цифровой продукт" width="1400" height="933" sizes="(min-width: 72rem) 30rem, (min-width: 48rem) 42rem, 84vw" loading="lazy" decoding="async">
+                                </picture>
+                                <div class="department-card__body">
+                                    <p class="department-card__meta">IT</p>
                                     <h3>IT</h3>
-                                    <p class="department-card__quote">Здесь идеи обретают цифровую плоть и кровь.</p>
-                                    <p class="department-card__description">
-                                        Мы пишем код, создаём платформы и автоматизируем процессы, превращая
-                                        сложные задачи в аккуратные технологические решения, которыми удобно пользоваться.
+                                    <p class="department-card__lead">Здесь идеи обретают цифровую плоть и кровь.</p>
+                                    <p class="department-card__text">
+                                        Пишем код, создаём платформы и автоматизируем процессы, превращая сложные задачи
+                                        в аккуратные технологические решения.
                                     </p>
-                                </article>
-                                <article class="department-card" style="--card-image: url('https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1400&q=80');">
-                                    <span class="department-card__label">Дизайн</span>
+                                </div>
+                            </article>
+
+                            <article class="department-card" data-slide>
+                                <picture class="department-card__media">
+                                    <source media="(min-width: 72rem)" srcset="https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1400&q=80">
+                                    <source media="(min-width: 48rem)" srcset="https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1080&q=80">
+                                    <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=760&q=80" alt="Дизайнеры работают над визуальной концепцией и интерфейсом продукта" width="1400" height="933" sizes="(min-width: 72rem) 30rem, (min-width: 48rem) 42rem, 84vw" loading="lazy" decoding="async">
+                                </picture>
+                                <div class="department-card__body">
+                                    <p class="department-card__meta">Дизайн</p>
                                     <h3>Дизайн</h3>
-                                    <p class="department-card__quote">Мы превращаем интерфейсы в опыт, а бренды — в образы.</p>
-                                    <p class="department-card__description">
-                                        Мы отвечаем за то, чтобы продукты были не только функциональными, но и красивыми,
-                                        понятными, узнаваемыми и эмоционально цепляющими с первого экрана.
+                                    <p class="department-card__lead">Интерфейсы в опыт, бренды — в узнаваемые образы.</p>
+                                    <p class="department-card__text">
+                                        Отвечаем за то, чтобы продукты были не только функциональными,
+                                        но и визуально собранными, понятными и эмоционально точными.
                                     </p>
-                                </article>
-                            </div>
+                                </div>
+                            </article>
                         </div>
-                        <button class="carousel__control" type="button" aria-label="Следующий отдел" data-next>
-                            <span>&rarr;</span>
-                        </button>
                     </div>
-                    <div class="carousel__dots" data-dots aria-label="Навигация по отделам"></div>
                 </div>
             </section>
 
             <section class="section events" id="events">
-                <div class="container">
-                    <div class="section-heading" data-reveal>
-                        <p class="section-kicker">Активности</p>
-                        <h2>Мероприятия, после которых хочется остаться в команде</h2>
+                <div class="container events__layout">
+                    <div class="section-copy" data-reveal>
+                        <p class="section-tag">Мероприятия</p>
+                        <h2>Форматы, ради которых хочется приходить офлайн</h2>
+                        <p>
+                            За сезон клуб провёл лекции, бизнес-игры, коллаборации и большие открытые события.
+                            Мы строим программу так, чтобы человек приходил не только послушать, но и реально включиться.
+                        </p>
                     </div>
-                    <div class="events__layout">
-                        <article class="glass-card event-feature" data-reveal>
-                            <span class="event-feature__eyebrow">Форумы, лекции, бизнес-игры, коллаборации</span>
-                            <h3>От камерных встреч до собственных больших форматов</h3>
-                            <p>
-                                Мы собираем спикеров, делаем практические лекции, запускаем специальные проекты,
-                                тестируем новые сценарии нетворкинга и создаём мероприятия, в которых студенты получают
-                                не сухую теорию, а понятный опыт и сильные связи.
-                            </p>
-                            <ul class="event-tags">
-                                <li>Открытые лекции</li>
-                                <li>Форумы</li>
-                                <li>Мастер-классы</li>
-                                <li>Бизнес-игры</li>
-                                <li>Нетворкинг</li>
-                                <li>Спецпроекты</li>
+
+                    <article class="event-feature" data-reveal>
+                        <figure class="media-frame event-feature__media">
+                            <picture>
+                                <source media="(min-width: 72rem)" srcset="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1600&q=80">
+                                <source media="(min-width: 48rem)" srcset="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1200&q=80">
+                                <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=900&q=80" alt="Выступление спикера на студенческом мероприятии перед аудиторией" width="1600" height="1067" sizes="(min-width: 64rem) 52vw, 100vw" loading="lazy" decoding="async">
+                            </picture>
+                        </figure>
+
+                        <div class="event-feature__body">
+                            <p class="event-feature__meta">Сезон 2024–2025</p>
+                            <h3>Шесть больших событий и десятки точек входа в клуб</h3>
+
+                            <ul class="event-list">
+                                <li>
+                                    <strong>Открытые лекции</strong>
+                                    <span>Эксперты, предприниматели и практики делятся опытом прикладно, а не абстрактно.</span>
+                                </li>
+                                <li>
+                                    <strong>Форумы и спецпроекты</strong>
+                                    <span>Большие форматы усиливают бренд клуба и собирают вокруг него внимание.</span>
+                                </li>
+                                <li>
+                                    <strong>Игры и нетворкинг</strong>
+                                    <span>Мы делаем события, в которых знакомство и командная химия так же важны, как контент.</span>
+                                </li>
                             </ul>
+
                             <div class="event-feature__actions">
-                                <a class="button button--primary button--small" href="https://ekp-events.timepad.ru/" target="_blank" rel="noreferrer">Открыть афишу</a>
-                                <a class="button button--secondary button--small" href="https://imet.spbstu.ru/studencheskie_obedineniya/" target="_blank" rel="noreferrer">Официальная страница</a>
+                                <a class="button button--primary button--small" href="https://ekp-events.timepad.ru/" target="_blank" rel="noopener noreferrer">Открыть афишу</a>
+                                <a class="button button--ghost button--small" href="https://imet.spbstu.ru/studencheskie_obedineniya/" target="_blank" rel="noopener noreferrer">Официальная страница</a>
                             </div>
-                        </article>
-                        <div class="events__stack">
-                            <article class="event-card" data-reveal style="--event-image: url('https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1200&q=80');">
-                                <span>Открытые встречи</span>
-                                <h3>Спикеры, которые говорят по делу</h3>
-                                <p>Предприниматели, эксперты и практики делятся опытом так, чтобы его хотелось сразу применять.</p>
-                            </article>
-                            <article class="event-card" data-reveal style="--event-image: url('https://images.unsplash.com/photo-1515169067868-5387ec356754?auto=format&fit=crop&w=1200&q=80');">
-                                <span>Форумы и спецпроекты</span>
-                                <h3>Собираем масштаб и внимание вокруг клуба</h3>
-                                <p>Делаем события, которые усиливают бренд сообщества и открывают новые партнёрства.</p>
-                            </article>
-                            <article class="event-card" data-reveal style="--event-image: url('https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&w=1200&q=80');">
-                                <span>Командные форматы</span>
-                                <h3>Учимся работать вместе, а не поодиночке</h3>
-                                <p>От мозговых штурмов до бизнес-игр: мы растим навыки общения, лидерства и самоорганизации.</p>
-                            </article>
                         </div>
-                    </div>
+                    </article>
                 </div>
             </section>
 
             <section class="section faq" id="faq">
-                <div class="container">
-                    <div class="section-heading" data-reveal>
-                        <p class="section-kicker">FAQ</p>
-                        <h2>Ответы на вопросы</h2>
+                <div class="container faq__layout">
+                    <div class="section-copy faq__copy" data-reveal>
+                        <p class="section-tag">FAQ</p>
+                        <h2>Ответы на частые вопросы</h2>
+                        <p>
+                            Если не нашёл своего вопроса, проще всего написать нам напрямую в Telegram:
+                            подскажем по мероприятиям, набору и тому, как влиться в команду.
+                        </p>
                     </div>
-                    <div class="faq__list">
+
+                    <div class="faq__items">
                         <details class="faq-item" data-reveal>
                             <summary>Можно ли приходить студентам других вузов?</summary>
-                            <p>
-                                Да. Клуб открыт не только для студентов Политеха: мы рады участникам из других вузов
-                                Санкт-Петербурга, если им интересны предпринимательство, проекты и сильное окружение.
-                            </p>
+                            <p>Да. Клуб открыт не только для студентов Политеха: к нам приходят и студенты других вузов Санкт-Петербурга.</p>
                         </details>
                         <details class="faq-item" data-reveal>
                             <summary>Как попасть на мероприятие?</summary>
-                            <p>
-                                Следи за анонсами в Telegram и ВКонтакте, а затем проходи регистрацию по ссылке из афиши.
-                                Обычно мы публикуем все детали заранее: дату, формат, место и условия участия.
-                            </p>
+                            <p>Следи за анонсами в Telegram и ВКонтакте, затем проходи регистрацию по ссылке в афише.</p>
                         </details>
                         <details class="faq-item" data-reveal>
                             <summary>Какая продолжительность мероприятия?</summary>
-                            <p>
-                                Чаще всего встреча занимает от полутора до трёх часов. Всё зависит от формата:
-                                лекция, форум, бизнес-игра или камерный нетворкинг.
-                            </p>
+                            <p>Обычно от полутора до трёх часов, в зависимости от формата: лекция, форум, игра или нетворкинг.</p>
                         </details>
                         <details class="faq-item" data-reveal>
                             <summary>Можно ли приходить с друзьями?</summary>
-                            <p>
-                                Да, если в анонсе нет специальных ограничений по регистрации. Мы только за,
-                                когда сильные люди приходят сильной компанией.
-                            </p>
+                            <p>Да, если в анонсе нет специальных ограничений по регистрации. Мы только за сильную компанию.</p>
                         </details>
                         <details class="faq-item" data-reveal>
-                            <summary>А как можно попасть к нам в команду?</summary>
-                            <p>
-                                Самый быстрый путь — написать нам в Telegram. Подскажем, какие направления сейчас в фокусе,
-                                расскажем про внутренний набор и поможем выбрать роль, которая тебе подойдёт.
-                            </p>
+                            <summary>Как попасть в команду?</summary>
+                            <p>Напиши нам в Telegram: расскажем, какие направления сейчас в фокусе и как лучше зайти в клуб.</p>
                         </details>
                     </div>
                 </div>
@@ -305,23 +316,15 @@
 
             <section class="section cta" id="contact">
                 <div class="container">
-                    <div class="cta__panel glass-card" data-reveal>
-                        <div class="cta__halo" aria-hidden="true"></div>
-                        <p class="section-kicker">Открытый набор</p>
-                        <h2>Вступай в Бизнес-клуб СПбПУ</h2>
-                        <p class="cta__text">
-                            Если хочешь запускать проекты, общаться с сильными людьми и собирать опыт ещё во время учёбы,
-                            мы ждём тебя. Начать можно с одного сообщения.
-                        </p>
-                        <a class="button button--primary cta__button" href="https://t.me/mmmmras" target="_blank" rel="noreferrer">Написать нам</a>
-                        <div class="cta__links">
-                            <a class="pill-link" href="https://vk.com/businessclub_spbpu" target="_blank" rel="noreferrer">ВКонтакте</a>
-                            <a class="pill-link" href="https://t.me/economicclubru" target="_blank" rel="noreferrer">Telegram</a>
-                            <a class="pill-link" href="https://ekp-events.timepad.ru/" target="_blank" rel="noreferrer">Афиша</a>
+                    <div class="cta__shell" data-reveal>
+                        <p class="section-tag">Контакты</p>
+                        <h2>Хочешь в команду или на ближайшее событие?</h2>
+                        <p>Начать можно с одного сообщения. Дальше уже покажем, куда тебе лучше зайти и как быстро включиться в жизнь клуба.</p>
+                        <div class="cta__actions">
+                            <a class="button button--primary" href="https://t.me/mmmmras" target="_blank" rel="noopener noreferrer">Написать в Telegram</a>
+                            <a class="button button--ghost" href="https://vk.com/businessclub_spbpu" target="_blank" rel="noopener noreferrer">Открыть ВКонтакте</a>
+                            <a class="button button--ghost" href="https://ekp-events.timepad.ru/" target="_blank" rel="noopener noreferrer">Смотреть афишу</a>
                         </div>
-                        <p class="cta__note">
-                            Анонсы, новости и регистрации живут в соцсетях клуба, а по вопросам сотрудничества можно писать напрямую.
-                        </p>
                     </div>
                 </div>
             </section>
@@ -331,15 +334,16 @@
             <div class="container site-footer__inner">
                 <p>Бизнес-клуб СПбПУ <span id="year"></span></p>
                 <div class="site-footer__links">
-                    <a href="#about">О нас</a>
+                    <a href="#about">О клубе</a>
                     <a href="#departments">Отделы</a>
                     <a href="#events">Мероприятия</a>
                     <a href="#faq">FAQ</a>
+                    <a href="#contact">Контакты</a>
                 </div>
             </div>
         </footer>
     </div>
 
-    <script src="/static/app.js" defer></script>
+    <script src="../static/app.js" defer></script>
 </body>
 </html>
