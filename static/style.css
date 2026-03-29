@@ -419,8 +419,8 @@ button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    inline-size: 3.15rem;
-    block-size: 3.15rem;
+    inline-size: clamp(2.7rem, 4vw, 3.15rem);
+    block-size: clamp(2.7rem, 4vw, 3.15rem);
     border-radius: 50%;
     border: 0.0625rem solid rgba(255, 255, 255, 0.12);
     background: rgba(255, 255, 255, 0.03);
@@ -431,8 +431,8 @@ button {
 }
 
 .icon-link svg {
-    inline-size: 1.2rem;
-    block-size: 1.2rem;
+    inline-size: clamp(1.1rem, 1.7vw, 1.2rem);
+    block-size: clamp(1.1rem, 1.7vw, 1.2rem);
     fill: currentColor;
     stroke: currentColor;
     stroke-width: 0.08rem;
@@ -444,7 +444,7 @@ button {
     fill: currentColor;
     stroke: none;
     font-family: "Manrope", sans-serif;
-    font-size: 0.6rem;
+    font-size: 0.56rem;
     font-weight: 800;
     letter-spacing: 0.08em;
 }
@@ -798,9 +798,9 @@ button {
 }
 
 .departments .section-copy h2 {
-    max-width: 9.8ch;
-    font-size: clamp(1.9rem, 3.7vw, 3.35rem);
-    line-height: 0.93;
+    max-width: 12ch;
+    font-size: clamp(1.8rem, 3.4vw, 3rem);
+    line-height: 0.95;
     letter-spacing: -0.04em;
 }
 
@@ -1028,9 +1028,9 @@ button {
 }
 
 .events__copy h2 {
-    max-width: 7.4ch;
-    font-size: clamp(1.95rem, 4.1vw, 4rem);
-    line-height: 0.88;
+    max-width: 9.5ch;
+    font-size: clamp(1.75rem, 3.55vw, 3.25rem);
+    line-height: 0.92;
 }
 
 .events__copy p {
@@ -1113,6 +1113,10 @@ button {
     display: flex;
     flex-wrap: wrap;
     gap: 0.75rem;
+}
+
+.event-feature__actions .button {
+    flex: 1 1 13.5rem;
 }
 
 .faq__layout {
@@ -1242,6 +1246,22 @@ button {
 
     .departments .section-copy--row {
         gap: 0.8rem;
+    }
+}
+
+@media (max-width: 84rem) {
+    .events__layout {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    .events__copy {
+        padding-right: 0;
+    }
+
+    .events__copy h2 {
+        max-width: 11ch;
+        font-size: clamp(1.8rem, 4.6vw, 3.2rem);
     }
 }
 
@@ -1375,17 +1395,17 @@ button {
     }
 
     .icon-link {
-        inline-size: 2.85rem;
-        block-size: 2.85rem;
+        inline-size: 2.8rem;
+        block-size: 2.8rem;
     }
 
     .icon-link svg {
-        inline-size: 1.25rem;
-        block-size: 1.25rem;
+        inline-size: 1.15rem;
+        block-size: 1.15rem;
     }
 
     .icon-link svg text {
-        font-size: 0.64rem;
+        font-size: 0.54rem;
     }
 
     .brand__mark {
@@ -1495,9 +1515,9 @@ button {
 
     .departments .section-copy h2,
     .events__copy h2 {
-        max-width: 10ch;
-        font-size: clamp(1.7rem, 8.8vw, 2.45rem);
-        line-height: 0.94;
+        max-width: 11ch;
+        font-size: clamp(1.55rem, 7.2vw, 2.2rem);
+        line-height: 0.96;
     }
 
     .snap-carousel {
@@ -1569,6 +1589,19 @@ button {
         font-size: clamp(1.45rem, 7vw, 2rem);
     }
 
+    .event-feature {
+        overflow: visible;
+    }
+
+    .event-feature__actions {
+        gap: 0.65rem;
+        margin-top: 0.2rem;
+    }
+
+    .event-feature__actions .button {
+        flex-basis: 100%;
+    }
+
     .faq-item summary {
         padding-right: 3rem;
     }
@@ -1589,8 +1622,17 @@ button {
     }
 
     .icon-link {
-        inline-size: 2.65rem;
-        block-size: 2.65rem;
+        inline-size: 2.55rem;
+        block-size: 2.55rem;
+    }
+
+    .icon-link svg {
+        inline-size: 1.05rem;
+        block-size: 1.05rem;
+    }
+
+    .icon-link svg text {
+        font-size: 0.5rem;
     }
 
     .brand__mark {
