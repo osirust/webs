@@ -3,18 +3,15 @@ const menuToggle = document.querySelector(".menu-toggle");
 const siteNav = document.querySelector(".site-nav");
 const revealItems = [...document.querySelectorAll("[data-reveal]")];
 const yearNode = document.getElementById("year");
-const motionField = document.getElementById("motion-field");
-const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 if (yearNode) {
-    yearNode.textContent = new Date().getFullYear();
+    yearNode.textContent = String(new Date().getFullYear());
 }
 
 const closeMenu = () => {
     body.classList.remove("nav-open");
-    if (menuToggle) {
-        menuToggle.setAttribute("aria-expanded", "false");
-    }
+    menuToggle?.setAttribute("aria-expanded", "false");
 };
 
 if (menuToggle && siteNav) {
@@ -27,8 +24,30 @@ if (menuToggle && siteNav) {
         link.addEventListener("click", closeMenu);
     });
 
+    document.addEventListener("click", (event) => {
+        if (!body.classList.contains("nav-open")) {
+            return;
+        }
+
+        const target = event.target;
+        if (!(target instanceof Element)) {
+            return;
+        }
+
+        if (!siteNav.contains(target) && !menuToggle.contains(target)) {
+            closeMenu();
+        }
+    });
+
     document.addEventListener("keydown", (event) => {
         if (event.key === "Escape") {
+            closeMenu();
+        }
+    });
+
+    const desktopQuery = window.matchMedia("(min-width: 64rem)");
+    desktopQuery.addEventListener("change", (event) => {
+        if (event.matches) {
             closeMenu();
         }
     });
@@ -59,221 +78,136 @@ if ("IntersectionObserver" in window) {
     revealItems.forEach((item) => item.classList.add("is-visible"));
 }
 
-if (motionField && !prefersReducedMotion) {
-    const context = motionField.getContext("2d");
-    const pointer = {
-        x: window.innerWidth / 2,
-        y: window.innerHeight / 2,
-        active: false,
-    };
-    let width = 0;
-    let height = 0;
-    let ratio = 1;
-    let particles = [];
-    let animationFrame = 0;
-
-    const createParticle = () => {
-        const speedX = (Math.random() - 0.5) * 0.28;
-        const speedY = (Math.random() - 0.5) * 0.28;
-
-        return {
-            x: Math.random() * width,
-            y: Math.random() * height,
-            vx: speedX,
-            vy: speedY,
-            baseVx: speedX,
-            baseVy: speedY,
-            size: Math.random() * 1.7 + 0.45,
-            alpha: Math.random() * 0.55 + 0.15,
-            accent: Math.random() < 0.12,
-        };
-    };
-
-    const resizeField = () => {
-        width = window.innerWidth;
-        height = window.innerHeight;
-        ratio = Math.min(window.devicePixelRatio || 1, 2);
-
-        motionField.width = Math.floor(width * ratio);
-        motionField.height = Math.floor(height * ratio);
-        motionField.style.width = `${width}px`;
-        motionField.style.height = `${height}px`;
-
-        context.setTransform(ratio, 0, 0, ratio, 0, 0);
-        particles = Array.from(
-            { length: Math.max(28, Math.min(120, Math.round((width * height) / 22000))) },
-            createParticle,
-        );
-    };
-
-    const drawField = () => {
-        context.clearRect(0, 0, width, height);
-
-        particles.forEach((particle) => {
-            if (pointer.active) {
-                const dx = particle.x - pointer.x;
-                const dy = particle.y - pointer.y;
-                const distance = Math.hypot(dx, dy) || 1;
-                const influence = 150;
-
-                if (distance < influence) {
-                    const force = (influence - distance) / influence;
-                    particle.vx += (dx / distance) * force * 0.045;
-                    particle.vy += (dy / distance) * force * 0.045;
-                }
-            }
-
-            particle.vx += (particle.baseVx - particle.vx) * 0.035;
-            particle.vy += (particle.baseVy - particle.vy) * 0.035;
-            particle.x += particle.vx;
-            particle.y += particle.vy;
-
-            if (particle.x < -12) particle.x = width + 12;
-            if (particle.x > width + 12) particle.x = -12;
-            if (particle.y < -12) particle.y = height + 12;
-            if (particle.y > height + 12) particle.y = -12;
-
-            context.beginPath();
-            context.fillStyle = particle.accent
-                ? `rgba(23, 228, 234, ${particle.alpha})`
-                : `rgba(255, 255, 255, ${particle.alpha})`;
-            context.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-            context.fill();
-        });
-
-        animationFrame = window.requestAnimationFrame(drawField);
-    };
-
-    window.addEventListener("resize", resizeField);
-    window.addEventListener("pointermove", (event) => {
-        pointer.x = event.clientX;
-        pointer.y = event.clientY;
-        pointer.active = true;
-    });
-    window.addEventListener("pointerleave", () => {
-        pointer.active = false;
-    });
-    window.addEventListener("blur", () => {
-        pointer.active = false;
-    });
-
-    resizeField();
-    drawField();
-
-    window.addEventListener("beforeunload", () => {
-        window.cancelAnimationFrame(animationFrame);
-    });
-}
-
-const carousel = document.querySelector("[data-carousel]");
-
-if (carousel) {
-    const track = carousel.querySelector("[data-track]");
-    const viewport = carousel.querySelector("[data-viewport]");
+const setupCarousel = (carousel) => {
+    const scroller = carousel.querySelector("[data-scroller]");
+    const slides = scroller ? [...scroller.querySelectorAll("[data-slide]")] : [];
     const prevButton = carousel.querySelector("[data-prev]");
     const nextButton = carousel.querySelector("[data-next]");
     const dotsWrap = carousel.querySelector("[data-dots]");
-    const cards = track ? [...track.children] : [];
-    let currentIndex = Number(carousel.dataset.startIndex || 0);
-    let touchStartX = 0;
-    let touchDeltaX = 0;
 
-    const moveToIndex = (newIndex) => {
-        if (!track || !viewport || cards.length === 0) {
-            return;
+    if (!scroller || slides.length === 0) {
+        return;
+    }
+
+    let activeIndex = 0;
+    const slideRatios = new Map();
+
+    const updateButtons = () => {
+        if (prevButton) {
+            prevButton.disabled = activeIndex === 0;
         }
 
-        currentIndex = (newIndex + cards.length) % cards.length;
-
-        cards.forEach((card, index) => {
-            const distance = Math.abs(index - currentIndex);
-            const wrappedDistance = Math.min(distance, cards.length - distance);
-
-            if (wrappedDistance === 0) {
-                card.dataset.state = "active";
-                card.setAttribute("aria-hidden", "false");
-            } else if (wrappedDistance === 1) {
-                card.dataset.state = "near";
-                card.setAttribute("aria-hidden", "true");
-            } else {
-                card.dataset.state = "far";
-                card.setAttribute("aria-hidden", "true");
-            }
-        });
-
-        const activeCard = cards[currentIndex];
-        const centeredOffset =
-            activeCard.offsetLeft - (viewport.clientWidth - activeCard.offsetWidth) / 2;
-        const maxOffset = Math.max(0, track.scrollWidth - viewport.clientWidth);
-        const translateX = Math.min(Math.max(centeredOffset, 0), maxOffset);
-
-        track.style.transform = `translateX(${-translateX}px)`;
-
-        if (dotsWrap) {
-            [...dotsWrap.children].forEach((dot, index) => {
-                const isActive = index === currentIndex;
-                dot.setAttribute("aria-selected", String(isActive));
-                dot.setAttribute("tabindex", isActive ? "0" : "-1");
-            });
+        if (nextButton) {
+            nextButton.disabled = activeIndex === slides.length - 1;
         }
     };
 
+    const setActiveSlide = (index) => {
+        activeIndex = index;
+
+        slides.forEach((slide, slideIndex) => {
+            const isActive = slideIndex === activeIndex;
+            slide.dataset.current = isActive ? "true" : "false";
+            slide.setAttribute("aria-current", String(isActive));
+        });
+
+        if (dotsWrap) {
+            [...dotsWrap.children].forEach((dot, dotIndex) => {
+                const isActive = dotIndex === activeIndex;
+                dot.setAttribute("aria-selected", String(isActive));
+                dot.tabIndex = isActive ? 0 : -1;
+            });
+        }
+
+        updateButtons();
+    };
+
+    const scrollToSlide = (index) => {
+        const nextIndex = Math.max(0, Math.min(index, slides.length - 1));
+        slides[nextIndex].scrollIntoView({
+            behavior: prefersReducedMotion.matches ? "auto" : "smooth",
+            inline: "center",
+            block: "nearest",
+        });
+    };
+
     if (dotsWrap) {
-        cards.forEach((card, index) => {
+        slides.forEach((slide, index) => {
             const dot = document.createElement("button");
             dot.type = "button";
-            dot.setAttribute("aria-label", `Перейти к отделу ${card.querySelector("h3")?.textContent || index + 1}`);
-            dot.addEventListener("click", () => moveToIndex(index));
+            dot.setAttribute("aria-label", slide.querySelector("h3")?.textContent || `Слайд ${index + 1}`);
+            dot.setAttribute("aria-selected", "false");
+            dot.tabIndex = -1;
+            dot.addEventListener("click", () => scrollToSlide(index));
             dotsWrap.appendChild(dot);
         });
     }
 
-    prevButton?.addEventListener("click", () => moveToIndex(currentIndex - 1));
-    nextButton?.addEventListener("click", () => moveToIndex(currentIndex + 1));
+    prevButton?.addEventListener("click", () => scrollToSlide(activeIndex - 1));
+    nextButton?.addEventListener("click", () => scrollToSlide(activeIndex + 1));
 
-    viewport?.addEventListener(
-        "touchstart",
-        (event) => {
-            touchStartX = event.changedTouches[0].clientX;
-        },
-        { passive: true },
-    );
+    if ("IntersectionObserver" in window) {
+        const slideObserver = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    const index = slides.indexOf(entry.target);
+                    if (index !== -1) {
+                        slideRatios.set(index, entry.isIntersecting ? entry.intersectionRatio : 0);
+                    }
+                });
 
-    viewport?.addEventListener(
-        "touchmove",
-        (event) => {
-            touchDeltaX = event.changedTouches[0].clientX - touchStartX;
-        },
-        { passive: true },
-    );
+                const nextActive = [...slideRatios.entries()].sort((left, right) => right[1] - left[1])[0];
+                if (nextActive && nextActive[1] > 0.24) {
+                    setActiveSlide(nextActive[0]);
+                }
+            },
+            {
+                root: scroller,
+                threshold: [0.2, 0.45, 0.65, 0.85],
+                rootMargin: "0px -12% 0px -12%",
+            },
+        );
 
-    viewport?.addEventListener("touchend", () => {
-        if (Math.abs(touchDeltaX) > 44) {
-            moveToIndex(touchDeltaX < 0 ? currentIndex + 1 : currentIndex - 1);
-        }
+        slides.forEach((slide) => slideObserver.observe(slide));
+    } else {
+        let frameId = 0;
 
-        touchDeltaX = 0;
-    });
+        const syncFromScroll = () => {
+            frameId = 0;
+            const scrollerLeft = scroller.scrollLeft;
+            const scrollerCenter = scrollerLeft + scroller.clientWidth / 2;
+            let nextActive = 0;
+            let smallestDelta = Number.POSITIVE_INFINITY;
 
-    window.addEventListener("resize", () => moveToIndex(currentIndex));
-    moveToIndex(currentIndex);
-}
+            slides.forEach((slide, index) => {
+                const slideCenter = slide.offsetLeft + slide.offsetWidth / 2;
+                const delta = Math.abs(slideCenter - scrollerCenter);
+                if (delta < smallestDelta) {
+                    smallestDelta = delta;
+                    nextActive = index;
+                }
+            });
 
-document.querySelectorAll(".department-card").forEach((card) => {
-    card.addEventListener("pointermove", (event) => {
-        const rect = card.getBoundingClientRect();
-        const x = ((event.clientX - rect.left) / rect.width) * 100;
-        const y = ((event.clientY - rect.top) / rect.height) * 100;
+            setActiveSlide(nextActive);
+        };
 
-        card.style.setProperty("--spot-x", `${x}%`);
-        card.style.setProperty("--spot-y", `${y}%`);
-    });
+        scroller.addEventListener(
+            "scroll",
+            () => {
+                if (frameId) {
+                    return;
+                }
 
-    card.addEventListener("pointerleave", () => {
-        card.style.setProperty("--spot-x", "50%");
-        card.style.setProperty("--spot-y", "50%");
-    });
-});
+                frameId = window.requestAnimationFrame(syncFromScroll);
+            },
+            { passive: true },
+        );
+    }
+
+    setActiveSlide(0);
+};
+
+document.querySelectorAll("[data-carousel]").forEach(setupCarousel);
 
 document.querySelectorAll(".faq-item").forEach((item) => {
     item.addEventListener("toggle", () => {
