@@ -3,7 +3,9 @@ const menuToggle = document.querySelector(".menu-toggle");
 const siteNav = document.querySelector(".site-nav");
 const revealItems = [...document.querySelectorAll("[data-reveal]")];
 const yearNode = document.getElementById("year");
+const sparkleLayer = document.querySelector(".sparkle-layer");
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+const finePointerQuery = window.matchMedia("(pointer: fine)");
 
 if (yearNode) {
     yearNode.textContent = String(new Date().getFullYear());
@@ -222,3 +224,60 @@ document.querySelectorAll(".faq-item").forEach((item) => {
         });
     });
 });
+
+if (sparkleLayer && finePointerQuery.matches && !prefersReducedMotion.matches) {
+    let sparkleFrame = 0;
+    let sparklePointer = null;
+    let lastSparkleAt = 0;
+
+    const spawnSparkle = (clientX, clientY) => {
+        const sparkle = document.createElement("span");
+        const size = 0.45 + Math.random() * 0.5;
+        const driftX = (Math.random() - 0.5) * 1.4;
+        const driftY = -0.7 - Math.random() * 1.2;
+
+        sparkle.className = "sparkle-layer__star";
+        sparkle.style.setProperty("--x", `${clientX.toFixed(2)}px`);
+        sparkle.style.setProperty("--y", `${clientY.toFixed(2)}px`);
+        sparkle.style.setProperty("--size", `${size.toFixed(2)}rem`);
+        sparkle.style.setProperty("--drift-x", `${driftX.toFixed(2)}rem`);
+        sparkle.style.setProperty("--drift-y", `${driftY.toFixed(2)}rem`);
+
+        sparkleLayer.appendChild(sparkle);
+
+        if (sparkleLayer.childElementCount > 24) {
+            sparkleLayer.firstElementChild?.remove();
+        }
+
+        sparkle.addEventListener("animationend", () => {
+            sparkle.remove();
+        });
+    };
+
+    const flushSparkle = (timeStamp) => {
+        sparkleFrame = 0;
+
+        if (!sparklePointer || timeStamp - lastSparkleAt < 70) {
+            return;
+        }
+
+        lastSparkleAt = timeStamp;
+        spawnSparkle(sparklePointer.clientX + (Math.random() - 0.5) * 12, sparklePointer.clientY + (Math.random() - 0.5) * 12);
+
+        if (Math.random() > 0.55) {
+            spawnSparkle(sparklePointer.clientX + (Math.random() - 0.5) * 22, sparklePointer.clientY + (Math.random() - 0.5) * 22);
+        }
+    };
+
+    document.addEventListener(
+        "pointermove",
+        (event) => {
+            sparklePointer = { clientX: event.clientX, clientY: event.clientY };
+
+            if (!sparkleFrame) {
+                sparkleFrame = window.requestAnimationFrame(flushSparkle);
+            }
+        },
+        { passive: true },
+    );
+}
