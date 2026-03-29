@@ -1108,15 +1108,22 @@ button {
     color: var(--muted);
 }
 
-.event-feature__actions,
 .cta__actions {
     display: flex;
     flex-wrap: wrap;
     gap: 0.75rem;
 }
 
+.event-feature__actions {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.75rem;
+}
+
 .event-feature__actions .button {
-    flex: 1 1 13.5rem;
+    inline-size: 100%;
+    max-width: 100%;
+    min-width: 0;
 }
 
 .faq__layout {
@@ -1245,6 +1252,7 @@ button {
     }
 
     .departments .section-copy--row {
+        grid-template-columns: 1fr;
         gap: 0.8rem;
     }
 }
@@ -1511,6 +1519,7 @@ button {
     .departments .section-note {
         max-width: 100%;
         font-size: 0.9rem;
+        line-height: 1.45;
     }
 
     .departments .section-copy h2,
@@ -1518,6 +1527,11 @@ button {
         max-width: 11ch;
         font-size: clamp(1.55rem, 7.2vw, 2.2rem);
         line-height: 0.96;
+    }
+
+    .departments .section-copy--row {
+        grid-template-columns: 1fr;
+        gap: 0.55rem;
     }
 
     .snap-carousel {
@@ -1582,6 +1596,7 @@ button {
 
     .event-feature__media {
         aspect-ratio: 0.98 / 1;
+        overflow: hidden;
     }
 
     .event-feature__body h3 {
@@ -1590,16 +1605,7 @@ button {
     }
 
     .event-feature {
-        overflow: visible;
-    }
-
-    .event-feature__actions {
-        gap: 0.65rem;
-        margin-top: 0.2rem;
-    }
-
-    .event-feature__actions .button {
-        flex-basis: 100%;
+        overflow: clip;
     }
 
     .faq-item summary {
@@ -1633,6 +1639,10 @@ button {
 
     .icon-link svg text {
         font-size: 0.5rem;
+    }
+
+    .departments .section-note {
+        display: none;
     }
 
     .brand__mark {
