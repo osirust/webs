@@ -154,8 +154,8 @@ button {
     letter-spacing: -0.04em;
     text-transform: uppercase;
     text-wrap: balance;
-    overflow-wrap: anywhere;
-    hyphens: auto;
+    overflow-wrap: normal;
+    hyphens: none;
 }
 
 .section-copy h2,
@@ -167,8 +167,19 @@ button {
     letter-spacing: -0.035em;
     text-transform: uppercase;
     text-wrap: balance;
-    overflow-wrap: anywhere;
-    hyphens: auto;
+    overflow-wrap: normal;
+    hyphens: none;
+}
+
+.title-stack {
+    text-wrap: balance;
+    word-break: normal;
+    overflow-wrap: normal;
+    hyphens: none;
+}
+
+.title-stack span {
+    display: block;
 }
 
 .section-copy p,
@@ -332,15 +343,15 @@ button {
 .header-actions {
     display: inline-flex;
     align-items: center;
-    gap: 0.6rem;
+    gap: 0.75rem;
 }
 
 .icon-link {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    inline-size: 3rem;
-    block-size: 3rem;
+    inline-size: 3.15rem;
+    block-size: 3.15rem;
     border-radius: 50%;
     border: 0.0625rem solid rgba(255, 255, 255, 0.12);
     background: rgba(255, 255, 255, 0.03);
@@ -351,8 +362,8 @@ button {
 }
 
 .icon-link svg {
-    inline-size: 1.1rem;
-    block-size: 1.1rem;
+    inline-size: 1.2rem;
+    block-size: 1.2rem;
     fill: currentColor;
     stroke: currentColor;
     stroke-width: 0.08rem;
@@ -364,9 +375,9 @@ button {
     fill: currentColor;
     stroke: none;
     font-family: "Manrope", sans-serif;
-    font-size: 0.48rem;
+    font-size: 0.6rem;
     font-weight: 800;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.08em;
 }
 
 .icon-link:hover,
@@ -470,13 +481,14 @@ button {
 .hero h1 {
     margin: 0;
     font-family: "Unbounded", sans-serif;
+    max-width: 8ch;
     font-size: clamp(2.55rem, 7vw, 5.8rem);
     line-height: 0.92;
     letter-spacing: -0.05em;
     text-transform: uppercase;
     text-wrap: balance;
-    overflow-wrap: anywhere;
-    hyphens: auto;
+    overflow-wrap: normal;
+    hyphens: none;
 }
 
 .hero__lead {
@@ -534,7 +546,7 @@ button {
     grid-template-columns: repeat(12, minmax(0, 1fr));
     gap: 1.25rem;
     align-items: start;
-    grid-auto-rows: minmax(10rem, auto);
+    grid-auto-rows: auto;
 }
 
 .about__copy,
@@ -563,7 +575,7 @@ button {
     display: grid;
     align-content: start;
     gap: 1rem;
-    min-height: 100%;
+    align-self: start;
 }
 
 .about__copy p {
@@ -578,9 +590,11 @@ button {
 
 .about__media {
     grid-column: span 7;
+    display: grid;
     position: relative;
     overflow: clip;
-    min-height: clamp(21rem, 33vw, 30rem);
+    aspect-ratio: 1.34 / 1;
+    align-self: stretch;
 }
 
 .about__media picture,
@@ -618,12 +632,12 @@ button {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 0.9rem;
     padding: 1rem;
-    align-self: stretch;
+    align-self: start;
 }
 
 .stat-card {
-    min-height: 10rem;
-    padding: 1.2rem;
+    min-height: 0;
+    padding: 1.1rem 1.15rem;
     border: 0.0625rem solid rgba(255, 255, 255, 0.08);
     border-radius: var(--radius-md);
     background: rgba(255, 255, 255, 0.02);
@@ -651,7 +665,7 @@ button {
     display: grid;
     align-content: start;
     gap: 0.85rem;
-    min-height: 100%;
+    align-self: start;
 }
 
 .directions-panel h3,
@@ -662,8 +676,8 @@ button {
     line-height: 1;
     letter-spacing: -0.035em;
     text-transform: uppercase;
-    overflow-wrap: anywhere;
-    hyphens: auto;
+    overflow-wrap: normal;
+    hyphens: none;
 }
 
 .directions-panel h3 {
@@ -692,12 +706,15 @@ button {
 }
 
 .departments .section-note {
-    max-width: 21rem;
+    max-width: 34rem;
     font-size: 0.95rem;
+    text-align: left;
 }
 
 .departments .section-copy--row {
-    grid-template-columns: minmax(0, 1.15fr) minmax(16rem, 21rem);
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: 0.8rem;
 }
 
 .snap-carousel {
@@ -872,8 +889,8 @@ button {
     line-height: 0.95;
     letter-spacing: -0.04em;
     text-transform: uppercase;
-    overflow-wrap: anywhere;
-    hyphens: auto;
+    overflow-wrap: normal;
+    hyphens: none;
 }
 
 .department-card__lead {
@@ -912,7 +929,7 @@ button {
 }
 
 .events__copy h2 {
-    max-width: 8ch;
+    max-width: 10ch;
     font-size: clamp(2.35rem, 5vw, 4.8rem);
     line-height: 0.9;
 }
@@ -941,11 +958,19 @@ button {
 .event-feature {
     display: grid;
     grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+    align-items: stretch;
+    min-height: clamp(26rem, 34vw, 31rem);
     overflow: clip;
 }
 
 .event-feature__media {
+    display: grid;
     min-height: 100%;
+    align-self: stretch;
+}
+
+.event-feature__media img {
+    object-position: center;
 }
 
 .event-feature__body {
@@ -1188,6 +1213,23 @@ button {
         grid-column: auto;
     }
 
+    .about__copy {
+        order: 1;
+    }
+
+    .stats-panel {
+        order: 2;
+    }
+
+    .directions-panel {
+        order: 3;
+    }
+
+    .about__media {
+        order: 4;
+        aspect-ratio: 1.28 / 1;
+    }
+
     .hero__content {
         min-height: clamp(34rem, 78svh, 42rem);
     }
@@ -1200,11 +1242,16 @@ button {
     .events__copy {
         padding-right: 0;
     }
+
+    .event-feature {
+        min-height: auto;
+    }
 }
 
 @media (max-width: 48rem) {
     :root {
         --container: calc(100% - 1rem);
+        --section-space: 2.9rem;
     }
 
     body::before {
@@ -1216,20 +1263,47 @@ button {
     }
 
     .header-actions {
-        gap: 0.4rem;
+        gap: 0.45rem;
     }
 
     .icon-link {
-        inline-size: 2.5rem;
-        block-size: 2.5rem;
+        inline-size: 2.85rem;
+        block-size: 2.85rem;
+    }
+
+    .icon-link svg {
+        inline-size: 1.25rem;
+        block-size: 1.25rem;
+    }
+
+    .icon-link svg text {
+        font-size: 0.64rem;
+    }
+
+    .brand__mark {
+        inline-size: 2.7rem;
+        block-size: 2.7rem;
+        font-size: 0.86rem;
+    }
+
+    .menu-toggle {
+        inline-size: 3rem;
+        block-size: 3rem;
     }
 
     .hero h1 {
-        font-size: clamp(2.2rem, 13vw, 3.5rem);
+        max-width: 7.2ch;
+        font-size: clamp(2.1rem, 11.2vw, 3.2rem);
     }
 
     .hero__lead {
         max-width: 100%;
+        font-size: 0.94rem;
+    }
+
+    .hero__content {
+        min-height: 29rem;
+        padding-block: 4.25rem 1.4rem;
     }
 
     .section-heading {
@@ -1256,7 +1330,11 @@ button {
     }
 
     .about__media {
-        min-height: 15rem;
+        aspect-ratio: 1.15 / 1;
+    }
+
+    .about__copy p {
+        font-size: 0.96rem;
     }
 
     .hero__actions,
@@ -1289,12 +1367,17 @@ button {
         padding: 1rem;
     }
 
+    .stat-card p {
+        font-size: 0.9rem;
+    }
+
     .department-card {
-        min-height: 29rem;
+        min-height: 24rem;
     }
 
     .department-card__body {
         gap: 0.55rem;
+        padding: 1.1rem;
     }
 
     .departments .section-note {
@@ -1304,8 +1387,78 @@ button {
 
     .departments .section-copy h2,
     .events__copy h2 {
-        max-width: 8.5ch;
-        font-size: clamp(1.85rem, 10vw, 2.9rem);
+        max-width: 10ch;
+        font-size: clamp(1.7rem, 8.8vw, 2.45rem);
+        line-height: 0.94;
+    }
+
+    .snap-carousel {
+        gap: 1.1rem;
+    }
+
+    .snap-carousel__controls {
+        display: none;
+    }
+
+    .snap-carousel__scroller {
+        display: grid;
+        grid-auto-flow: row;
+        grid-auto-columns: unset;
+        gap: 1rem;
+        overflow: visible;
+        padding: 0;
+        scroll-snap-type: none;
+        scroll-padding-inline: 0;
+    }
+
+    .department-card,
+    .department-card[data-current="true"] {
+        transform: none;
+    }
+
+    .department-card__media {
+        min-height: 100%;
+    }
+
+    .department-card h3 {
+        max-width: 9.5ch;
+        font-size: clamp(1.45rem, 7.6vw, 1.95rem);
+    }
+
+    .department-card__lead {
+        max-width: 22ch;
+        font-size: 0.92rem;
+    }
+
+    .department-card__text {
+        max-width: none;
+        font-size: 0.9rem;
+    }
+
+    .events__layout {
+        gap: 1.2rem;
+    }
+
+    .events__copy {
+        gap: 0.95rem;
+    }
+
+    .events__points {
+        gap: 0.8rem;
+        max-width: none;
+    }
+
+    .events__points li {
+        font-size: 0.94rem;
+    }
+
+    .event-feature__media {
+        aspect-ratio: 0.98 / 1;
+    }
+
+    .event-feature__body h3 {
+        max-width: 10ch;
+        font-size: clamp(1.45rem, 7vw, 2rem);
     }
 
     .faq-item summary {
@@ -1324,16 +1477,17 @@ button {
     }
 
     .header-actions {
-        gap: 0.3rem;
+        gap: 0.35rem;
     }
 
     .icon-link {
-        inline-size: 2.25rem;
-        block-size: 2.25rem;
+        inline-size: 2.65rem;
+        block-size: 2.65rem;
     }
 
-    .snap-carousel__controls {
-        gap: 0.75rem;
+    .brand__mark {
+        inline-size: 2.55rem;
+        block-size: 2.55rem;
     }
 
     .carousel-button {
