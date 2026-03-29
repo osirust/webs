@@ -1,4 +1,4 @@
-:root {
+﻿:root {
     --bg: #040505;
     --bg-elevated: #0d0f10;
     --surface: rgba(17, 20, 21, 0.9);
@@ -8,8 +8,8 @@
     --text: #f4f4f2;
     --muted: rgba(244, 244, 242, 0.72);
     --muted-strong: rgba(244, 244, 242, 0.86);
-    --accent: #90fff0;
-    --accent-line: rgba(144, 255, 240, 0.28);
+    --accent: #7db9ff;
+    --accent-line: rgba(125, 185, 255, 0.32);
     --shadow-soft: 0 1.5rem 4rem rgba(0, 0, 0, 0.28);
     --shadow-strong: 0 2rem 5rem rgba(0, 0, 0, 0.4);
     --radius-sm: 1rem;
@@ -37,7 +37,7 @@ body {
     min-width: 20rem;
     background:
         radial-gradient(circle at top, rgba(255, 255, 255, 0.06), transparent 26rem),
-        radial-gradient(circle at 78% 22%, rgba(144, 255, 240, 0.12), transparent 18rem),
+        radial-gradient(circle at 78% 22%, rgba(125, 185, 255, 0.14), transparent 18rem),
         linear-gradient(180deg, #070808 0%, #050505 38%, #080a0a 100%);
     color: var(--text);
     font-family: "Manrope", sans-serif;
@@ -65,7 +65,7 @@ body::after {
     inset: 0;
     background:
         radial-gradient(circle at 20% 15%, rgba(255, 255, 255, 0.07), transparent 18rem),
-        radial-gradient(circle at 80% 70%, rgba(144, 255, 240, 0.08), transparent 20rem);
+        radial-gradient(circle at 80% 70%, rgba(125, 185, 255, 0.1), transparent 20rem);
     opacity: 0.8;
     pointer-events: none;
     z-index: -1;
@@ -146,6 +146,8 @@ button {
     letter-spacing: -0.05em;
     text-transform: uppercase;
     text-wrap: balance;
+    overflow-wrap: anywhere;
+    hyphens: auto;
 }
 
 .section-copy p,
@@ -206,13 +208,13 @@ button {
 
 .button--primary {
     color: #070808;
-    background: linear-gradient(180deg, #98fff1, #56ddcf);
-    box-shadow: 0 1rem 2.5rem rgba(86, 221, 207, 0.26);
+    background: linear-gradient(180deg, #b5d8ff, #6d9dff);
+    box-shadow: 0 1rem 2.5rem rgba(109, 157, 255, 0.26);
 }
 
 .button--primary:hover,
 .button--primary:focus-visible {
-    box-shadow: 0 1.25rem 2.8rem rgba(86, 221, 207, 0.34);
+    box-shadow: 0 1.25rem 2.8rem rgba(109, 157, 255, 0.34);
 }
 
 .button--ghost {
@@ -316,8 +318,8 @@ button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    inline-size: 2.55rem;
-    block-size: 2.55rem;
+    inline-size: 3rem;
+    block-size: 3rem;
     border-radius: 50%;
     border: 0.0625rem solid rgba(255, 255, 255, 0.12);
     background: rgba(255, 255, 255, 0.03);
@@ -328,8 +330,8 @@ button {
 }
 
 .icon-link svg {
-    inline-size: 1rem;
-    block-size: 1rem;
+    inline-size: 1.1rem;
+    block-size: 1.1rem;
     fill: currentColor;
     stroke: currentColor;
     stroke-width: 0.08rem;
@@ -452,6 +454,8 @@ button {
     letter-spacing: -0.07em;
     text-transform: uppercase;
     text-wrap: balance;
+    overflow-wrap: anywhere;
+    hyphens: auto;
 }
 
 .hero__lead {
@@ -466,6 +470,42 @@ button {
     flex-wrap: wrap;
     gap: 0.85rem;
     margin-top: 1.8rem;
+}
+
+.hero__stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    width: min(100%, 58rem);
+    max-width: none;
+    margin: 2rem 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.hero__stats li {
+    min-height: 100%;
+    padding: 1rem 1.1rem;
+    border: 0.0625rem solid rgba(255, 255, 255, 0.09);
+    border-radius: var(--radius-md);
+    background: rgba(8, 10, 11, 0.72);
+    backdrop-filter: blur(0.9rem);
+    box-shadow: var(--shadow-soft);
+}
+
+.hero__stats strong {
+    display: block;
+    margin-bottom: 0.55rem;
+    font-family: "Unbounded", sans-serif;
+    font-size: clamp(1.45rem, 3vw, 2.3rem);
+    line-height: 1;
+    letter-spacing: -0.06em;
+}
+
+.hero__stats span {
+    display: block;
+    color: var(--muted);
+    font-size: 0.88rem;
 }
 
 .about__grid {
@@ -501,8 +541,14 @@ button {
     min-height: 100%;
 }
 
-.about__copy h2 {
-    max-width: 10ch;
+.about__copy p {
+    margin: 0;
+    color: var(--muted-strong);
+    font-size: clamp(1rem, 1.35vw, 1.08rem);
+}
+
+.about__copy p + p {
+    margin-top: 1rem;
 }
 
 .about__media {
@@ -579,6 +625,8 @@ button {
     line-height: 1;
     letter-spacing: -0.05em;
     text-transform: uppercase;
+    overflow-wrap: anywhere;
+    hyphens: auto;
 }
 
 .focus-list {
@@ -764,6 +812,8 @@ button {
     line-height: 0.94;
     letter-spacing: -0.06em;
     text-transform: uppercase;
+    overflow-wrap: anywhere;
+    hyphens: auto;
 }
 
 .department-card__lead {
@@ -788,6 +838,24 @@ button {
 .events__layout {
     grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
     align-items: start;
+}
+
+.events__copy {
+    align-content: start;
+}
+
+.events__points {
+    display: grid;
+    gap: 0.8rem;
+    margin: 0.5rem 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.events__points li {
+    padding-left: 1rem;
+    color: var(--muted-strong);
+    border-left: 0.125rem solid var(--accent-line);
 }
 
 .event-feature {
@@ -897,7 +965,7 @@ button {
     padding: clamp(1.6rem, 3vw, 2.6rem);
     background:
         linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.018)),
-        linear-gradient(135deg, rgba(144, 255, 240, 0.06), transparent 48%),
+        linear-gradient(135deg, rgba(125, 185, 255, 0.08), transparent 48%),
         rgba(9, 11, 11, 0.92);
 }
 
@@ -1056,8 +1124,8 @@ button {
     }
 
     .icon-link {
-        inline-size: 2.35rem;
-        block-size: 2.35rem;
+        inline-size: 2.5rem;
+        block-size: 2.5rem;
     }
 
     .hero h1 {
@@ -1080,6 +1148,10 @@ button {
     }
 
     .stats-panel {
+        grid-template-columns: 1fr;
+    }
+
+    .hero__stats {
         grid-template-columns: 1fr;
     }
 
@@ -1115,8 +1187,8 @@ button {
     }
 
     .icon-link {
-        inline-size: 2.15rem;
-        block-size: 2.15rem;
+        inline-size: 2.25rem;
+        block-size: 2.25rem;
     }
 
     .snap-carousel__controls {

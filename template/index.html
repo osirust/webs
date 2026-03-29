@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -84,59 +84,78 @@
                         <a class="button button--primary" href="https://t.me/mmmmras" target="_blank" rel="noopener noreferrer">Написать нам</a>
                         <a class="button button--ghost" href="#departments">Посмотреть отделы</a>
                     </div>
+                    <ul class="hero__stats" data-reveal>
+                        <li>
+                            <strong>100+</strong>
+                            <span>участников собирают наши открытые события и большие клубные форматы</span>
+                        </li>
+                        <li>
+                            <strong>50+</strong>
+                            <span>спикеров, экспертов и гостей помогли сделать сезон прикладным и живым</span>
+                        </li>
+                        <li>
+                            <strong>4</strong>
+                            <span>основных направления внутри клуба, в которых можно расти и брать роль</span>
+                        </li>
+                    </ul>
                 </div>
             </section>
 
             <section class="section about" id="about">
-                <div class="container about__grid">
-                    <div class="section-copy about__copy" data-reveal>
+                <div class="container">
+                    <div class="section-heading" data-reveal>
                         <p class="section-tag">О клубе</p>
                         <h2>Не просто клуб, а среда, где идеи доходят до результата</h2>
-                        <p>
-                            Бизнес-клуб СПбПУ объединяет студентов Политеха, ИПМЭиТ и других вузов Петербурга,
-                            которым интересно делать больше обычной учёбы: запускать инициативы, строить сообщество,
-                            пробовать роли в команде и работать над проектами вместе.
-                        </p>
-                        <p>
-                            Здесь учатся договариваться, брать ответственность, проверять гипотезы и собирать опыт,
-                            который остаётся не в заметках, а в реальных кейсах, знакомствах и собственных форматах.
-                        </p>
                     </div>
 
-                    <figure class="media-frame about__media" data-reveal>
-                        <picture>
-                            <source media="(min-width: 72rem)" srcset="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=1600&q=80">
-                            <source media="(min-width: 48rem)" srcset="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=1200&q=80">
-                            <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=900&q=80" alt="Участники клубного события обсуждают идеи и общаются после выступления" width="1600" height="1067" sizes="(min-width: 64rem) 42vw, 100vw" loading="lazy" decoding="async">
-                        </picture>
-                    </figure>
+                    <div class="about__grid">
+                        <article class="about__copy" data-reveal>
+                            <p>
+                                Бизнес-клуб СПбПУ объединяет студентов Политеха, ИПМЭиТ и других вузов Петербурга,
+                                которым интересно делать больше обычной учёбы: запускать инициативы, строить сообщество,
+                                пробовать роли в команде и работать над проектами вместе.
+                            </p>
+                            <p>
+                                Здесь учатся договариваться, брать ответственность, проверять гипотезы и собирать опыт,
+                                который остаётся не в заметках, а в реальных кейсах, знакомствах и собственных форматах.
+                            </p>
+                        </article>
 
-                    <div class="stats-panel" data-reveal>
-                        <article class="stat-card">
-                            <strong>100+</strong>
-                            <p>участников собирают наши ключевые открытые форматы</p>
-                        </article>
-                        <article class="stat-card">
-                            <strong>50+</strong>
-                            <p>спикеров, экспертов и гостей усилили сезон практическими темами</p>
-                        </article>
-                        <article class="stat-card">
-                            <strong>20+</strong>
-                            <p>партнёрств, коллабораций и форматов дали клубу новый масштаб</p>
+                        <figure class="media-frame about__media" data-reveal>
+                            <picture>
+                                <source media="(min-width: 72rem)" srcset="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=1600&q=80">
+                                <source media="(min-width: 48rem)" srcset="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=1200&q=80">
+                                <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=900&q=80" alt="Участники клубного события обсуждают идеи и общаются после выступления" width="1600" height="1067" sizes="(min-width: 64rem) 42vw, 100vw" loading="lazy" decoding="async">
+                            </picture>
+                        </figure>
+
+                        <div class="stats-panel" data-reveal>
+                            <article class="stat-card">
+                                <strong>100+</strong>
+                                <p>участников собирают наши ключевые открытые форматы</p>
+                            </article>
+                            <article class="stat-card">
+                                <strong>50+</strong>
+                                <p>спикеров, экспертов и гостей усилили сезон практическими темами</p>
+                            </article>
+                            <article class="stat-card">
+                                <strong>20+</strong>
+                                <p>партнёрств, коллабораций и форматов дали клубу новый масштаб</p>
+                            </article>
+                        </div>
+
+                        <article class="directions-panel" data-reveal>
+                            <p class="section-tag">Направления</p>
+                            <h3>Четыре команды, одна система</h3>
+                            <ol class="focus-list">
+                                <li>IT</li>
+                                <li>Маркетинг</li>
+                                <li>Дизайн</li>
+                                <li>Продакт-менеджмент</li>
+                            </ol>
+                            <p>У каждого направления своя роль, но вместе они собирают один цельный продукт и одно сильное сообщество.</p>
                         </article>
                     </div>
-
-                    <article class="directions-panel" data-reveal>
-                        <p class="section-tag">Направления</p>
-                        <h3>Четыре команды, одна система</h3>
-                        <ol class="focus-list">
-                            <li>IT</li>
-                            <li>Маркетинг</li>
-                            <li>Дизайн</li>
-                            <li>Продакт-менеджмент</li>
-                        </ol>
-                        <p>У каждого направления своя роль, но вместе они собирают один цельный продукт и одно сильное сообщество.</p>
-                    </article>
                 </div>
             </section>
 
@@ -232,13 +251,18 @@
 
             <section class="section events" id="events">
                 <div class="container events__layout">
-                    <div class="section-copy" data-reveal>
+                    <div class="section-copy events__copy" data-reveal>
                         <p class="section-tag">Мероприятия</p>
                         <h2>Форматы, ради которых хочется приходить офлайн</h2>
                         <p>
                             За сезон клуб провёл лекции, бизнес-игры, коллаборации и большие открытые события.
                             Мы строим программу так, чтобы человек приходил не только послушать, но и реально включиться.
                         </p>
+                        <ul class="events__points">
+                            <li>Открытые лекции и встречи с экспертами</li>
+                            <li>Форумы, спецпроекты и партнёрские коллаборации</li>
+                            <li>Игры, нетворкинг и форматы, где команда собирается по-настоящему</li>
+                        </ul>
                     </div>
 
                     <article class="event-feature" data-reveal>

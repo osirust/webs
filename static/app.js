@@ -1,4 +1,4 @@
-const body = document.body;
+﻿const body = document.body;
 const menuToggle = document.querySelector(".menu-toggle");
 const siteNav = document.querySelector(".site-nav");
 const revealItems = [...document.querySelectorAll("[data-reveal]")];
