@@ -6,6 +6,7 @@ const yearNode = document.getElementById("year");
 const sparkleLayer = document.querySelector(".sparkle-layer");
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const finePointerQuery = window.matchMedia("(pointer: fine)");
+const probeMode = new URLSearchParams(window.location.search).get("probe") === "1";
 
 if (yearNode) {
     yearNode.textContent = String(new Date().getFullYear());
@@ -280,4 +281,55 @@ if (sparkleLayer && finePointerQuery.matches && !prefersReducedMotion.matches) {
         },
         { passive: true },
     );
+}
+
+if (probeMode) {
+    const rectInfo = (element) => {
+        if (!(element instanceof Element)) {
+            return null;
+        }
+
+        const rect = element.getBoundingClientRect();
+        return {
+            width: Math.round(rect.width),
+            height: Math.round(rect.height),
+            left: Math.round(rect.left),
+            right: Math.round(rect.right),
+            top: Math.round(rect.top),
+            bottom: Math.round(rect.bottom),
+            scrollWidth: Math.round(element.scrollWidth),
+            clientWidth: Math.round(element.clientWidth),
+        };
+    };
+
+    window.addEventListener("load", () => {
+        const report = {
+            viewport: {
+                width: window.innerWidth,
+                height: window.innerHeight,
+            },
+            document: {
+                scrollWidth: document.documentElement.scrollWidth,
+                clientWidth: document.documentElement.clientWidth,
+            },
+            header: rectInfo(document.querySelector(".site-header__inner")),
+            hero: rectInfo(document.querySelector(".hero__content")),
+            heroStats: rectInfo(document.querySelector(".hero__stats")),
+            about: rectInfo(document.querySelector(".about__grid")),
+            aboutCopy: rectInfo(document.querySelector(".about__copy")),
+            statsPanel: rectInfo(document.querySelector(".stats-panel")),
+            departments: rectInfo(document.querySelector("#departments .snap-carousel__scroller")),
+            firstCard: rectInfo(document.querySelector("[data-slide]")),
+            events: rectInfo(document.querySelector(".events__layout")),
+            eventCard: rectInfo(document.querySelector(".event-feature")),
+            faq: rectInfo(document.querySelector(".faq__layout")),
+            cta: rectInfo(document.querySelector(".cta__shell")),
+            buttons: [...document.querySelectorAll(".button")].slice(0, 6).map(rectInfo),
+        };
+
+        const pre = document.createElement("pre");
+        pre.id = "probe-output";
+        pre.textContent = JSON.stringify(report);
+        document.body.append(pre);
+    });
 }
