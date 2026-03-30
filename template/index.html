@@ -16,15 +16,14 @@
         <header class="site-header" id="top">
             <div class="container site-header__inner">
                 <a class="brand" href="#top" aria-label="На главную">
-                    <span class="brand__mark">БК</span>
-                    <span class="brand__text">
-                        <span class="brand__title">Business Club SPBPU</span>
-                        <span class="brand__subtitle">Бизнес-клуб СПбПУ</span>
+                    <span class="brand__mark">
+                        <img class="brand__logo brand__logo--header" src="../static/media/header-logo.png" alt="" width="42" height="42">
                     </span>
+                    <span class="sr-only">Бизнес-клуб СПбПУ</span>
                 </a>
 
                 <nav class="site-nav" id="site-nav" aria-label="Основная навигация">
-                    <a href="#about">О клубе</a>
+                    <a href="#about">О нас</a>
                     <a href="#departments">Отделы</a>
                     <a href="#events">Мероприятия</a>
                     <a href="#faq">FAQ</a>
@@ -32,19 +31,19 @@
                 </nav>
 
                 <div class="header-actions" aria-label="Социальные сети">
-                    <a class="icon-link" href="https://t.me/economicclubru" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+                    <span class="icon-link icon-link--passive" aria-label="Instagram">
                         <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M20.85 4.61 3.9 11.34a.83.83 0 0 0 .08 1.58l4.05 1.23 1.54 4.71a.83.83 0 0 0 1.45.26l2.34-3.12 4.41 3.23a.83.83 0 0 0 1.3-.5l2.62-13.16a.83.83 0 0 0-1.12-.96Z"/>
+                            <path d="M7 2.4h10A4.6 4.6 0 0 1 21.6 7v10a4.6 4.6 0 0 1-4.6 4.6H7A4.6 4.6 0 0 1 2.4 17V7A4.6 4.6 0 0 1 7 2.4Zm0 1.9A2.7 2.7 0 0 0 4.3 7v10A2.7 2.7 0 0 0 7 19.7h10a2.7 2.7 0 0 0 2.7-2.7V7A2.7 2.7 0 0 0 17 4.3Zm5 2.4A5.3 5.3 0 1 1 6.7 12 5.3 5.3 0 0 1 12 6.7Zm0 1.9A3.4 3.4 0 1 0 15.4 12 3.4 3.4 0 0 0 12 8.6Zm5.2-3a1.3 1.3 0 1 1-1.3 1.3 1.3 1.3 0 0 1 1.3-1.3Z"/>
                         </svg>
-                    </a>
+                    </span>
                     <a class="icon-link" href="https://vk.com/businessclub_spbpu" target="_blank" rel="noopener noreferrer" aria-label="ВКонтакте">
                         <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <text x="12" y="15.6" text-anchor="middle">VK</text>
+                            <path d="M12.8 17.5c-5 0-7.8-3.4-7.9-8.9h2.5c.1 4 1.9 5.8 3.3 6.1V8.6H13V12c1.4-.2 2.9-1.8 3.4-3.4h2.4c-.5 2.1-2.1 3.7-3.2 4.3 1.2.5 3 2 3.7 4.6h-2.5c-.6-1.7-2-3-3.8-3.2v3.2Z"/>
                         </svg>
                     </a>
-                    <a class="icon-link" href="https://ekp-events.timepad.ru/" target="_blank" rel="noopener noreferrer" aria-label="Афиша мероприятий">
+                    <a class="icon-link" href="https://t.me/economicclubru" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
                         <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M7 2v3M17 2v3M4 8h16M5 5h14a1 1 0 0 1 1 1v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a1 1 0 0 1 1-1Zm3 7h3v3H8zm5 0h3v3h-3z"/>
+                            <path d="M20.4 4.4 3.9 10.8a.85.85 0 0 0 .05 1.6l4.2 1.2 1.6 4.7a.85.85 0 0 0 1.48.28l2.44-3.18 4.2 3.04a.85.85 0 0 0 1.33-.53l2.5-12.67a.85.85 0 0 0-1.15-.91Z"/>
                         </svg>
                     </a>
                 </div>
@@ -60,115 +59,102 @@
 
         <main>
             <section class="section hero" aria-labelledby="hero-title">
-                <figure class="hero__stage" aria-hidden="true">
-                    <picture class="hero__picture">
-                        <source media="(min-width: 72rem)" srcset="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=2000&q=80">
-                        <source media="(min-width: 48rem)" srcset="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1440&q=80">
-                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=960&q=80" alt="" width="2000" height="1333" sizes="100vw" fetchpriority="high" decoding="async">
-                    </picture>
-                    <div class="hero__shade"></div>
-                    <svg class="hero__emblem" viewBox="0 0 520 520" role="presentation" aria-hidden="true">
-                        <circle cx="260" cy="260" r="220"/>
-                        <text x="142" y="318">Б</text>
-                        <text x="276" y="318">К</text>
-                    </svg>
-                </figure>
+                <div class="hero__stage" aria-hidden="true">
+                    <img class="hero__burst hero__burst--mist hero__burst--left" src="../static/media/hero-burst.png" alt="" width="1280" height="1229">
+                    <img class="hero__burst hero__burst--mist hero__burst--right" src="../static/media/hero-burst.png" alt="" width="1280" height="1229">
+                    <img class="hero__burst hero__burst--main" src="../static/media/hero-burst.png" alt="" width="1280" height="1229">
+                    <span class="hero__word hero__word--top">БУДУЩЕЕ</span>
+                    <span class="hero__word hero__word--left">
+                        <span>Р</span>
+                        <span>О</span>
+                        <span>С</span>
+                        <span>Т</span>
+                    </span>
+                    <span class="hero__word hero__word--right">
+                        <span>Р</span>
+                        <span>А</span>
+                        <span>З</span>
+                        <span>В</span>
+                        <span>И</span>
+                        <span>Т</span>
+                        <span>И</span>
+                        <span>Е</span>
+                    </span>
+                    <span class="hero__word hero__word--bottom">УСПЕХ</span>
+                </div>
 
                 <div class="container hero__content">
-                    <p class="hero__eyebrow" data-reveal>Business Club SPBPU</p>
-                    <h1 id="hero-title" class="title-stack title-stack--hero" data-reveal>
-                        <span>Вступай</span>
-                        <span>в Бизнес-клуб</span>
-                        <span>СПбПУ</span>
-                    </h1>
-                    <p class="hero__lead" data-reveal>
-                        Пространство для студентов, которые хотят не просто учиться, а запускать идеи,
-                        собирать команды, делать события и превращать амбиции в живые проекты.
-                    </p>
-                    <div class="hero__actions" data-reveal>
-                        <a class="button button--primary" href="https://t.me/mmmmras" target="_blank" rel="noopener noreferrer">Написать нам</a>
-                        <a class="button button--ghost" href="#departments">Посмотреть отделы</a>
+                    <h1 id="hero-title" class="sr-only">Бизнес-клуб СПбПУ</h1>
+                    <img class="hero__logo-image" src="../static/media/hero-logo.png" alt="Бизнес-клуб СПбПУ" width="428" height="428" data-reveal>
+                    <a class="hero__cta" href="#about" data-reveal>УЗНАТЬ О БК СПБПУ</a>
+                </div>
+            </section>
+
+            <div class="section-transition section-transition--hero-about" aria-hidden="true">
+                <img class="section-transition__wave section-transition__wave--left" src="../static/media/wave-left.png" alt="" width="1280" height="812">
+                <img class="section-transition__wave section-transition__wave--right" src="../static/media/wave-right.png" alt="" width="1128" height="812">
+            </div>
+
+            <section class="section about" id="about" aria-labelledby="about-title">
+                <div class="container about__shell">
+                    <div class="about__heading" data-reveal>
+                        <h2 id="about-title">О НАС</h2>
+                        <span class="section-accent" aria-hidden="true"></span>
                     </div>
-                    <ul class="hero__stats" data-reveal>
-                        <li>
+
+                    <article class="about__body" data-reveal>
+                        <p>
+                            <strong>Бизнес клуб</strong> — это пространство, где реализуются идеи и проекты совместно всей командой.
+                            Это возможность совершать ошибки, находить ответы на вопросы и создавать воспоминания на долгие годы.
+                        </p>
+                    </article>
+
+                    <img class="about__vector" src="../static/media/section-vectors.png" alt="" width="1280" height="791" aria-hidden="true">
+                </div>
+            </section>
+
+            <div class="section-transition section-transition--about-metrics" aria-hidden="true">
+                <img class="section-transition__wave section-transition__wave--left" src="../static/media/wave-left.png" alt="" width="1280" height="812">
+                <img class="section-transition__wave section-transition__wave--right" src="../static/media/wave-right.png" alt="" width="1128" height="812">
+            </div>
+
+            <section class="section metrics" id="metrics" aria-labelledby="metrics-title">
+                <div class="container metrics__shell">
+                    <div class="metrics__heading" data-reveal>
+                        <h2 id="metrics-title">Мы в цифрах</h2>
+                        <span class="section-accent" aria-hidden="true"></span>
+                    </div>
+
+                    <div class="metrics__grid" data-reveal>
+                        <article class="metric-card">
                             <strong>100+</strong>
-                            <span>участников собирают наши открытые события и большие клубные форматы</span>
-                        </li>
-                        <li>
+                            <p>
+                                <span>студентов приняли участие</span>
+                                <span>в нашем форуме</span>
+                            </p>
+                        </article>
+                        <article class="metric-card">
                             <strong>50+</strong>
-                            <span>спикеров, экспертов и гостей помогли сделать сезон прикладным и живым</span>
-                        </li>
-                        <li>
-                            <strong>4</strong>
-                            <span>основных направления внутри клуба, в которых можно расти и брать роль</span>
-                        </li>
-                    </ul>
-                </div>
-            </section>
-
-            <section class="section about" id="about">
-                <div class="container">
-                    <div class="section-heading section-heading--about" data-reveal>
-                        <p class="section-tag">О клубе</p>
-                        <h2 class="title-stack title-stack--about">
-                            <span>О нас</span>
-                        </h2>
-                    </div>
-
-                    <div class="about__grid">
-                        <article class="about__copy" data-reveal>
                             <p>
-                                Бизнес-клуб СПбПУ объединяет студентов Политеха, ИПМЭиТ и других вузов Петербурга,
-                                которым интересно делать больше обычной учёбы: запускать инициативы, строить сообщество,
-                                пробовать роли в команде и работать над проектами вместе.
-                            </p>
-                            <p>
-                                Здесь учатся договариваться, брать ответственность, проверять гипотезы и собирать опыт,
-                                который остаётся не в заметках, а в реальных кейсах, знакомствах и собственных форматах.
+                                <span>спикеров было</span>
+                                <span>приглашено</span>
                             </p>
                         </article>
-
-                        <figure class="media-frame about__media" data-reveal>
-                            <picture>
-                                <source media="(min-width: 72rem)" srcset="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=1600&q=80">
-                                <source media="(min-width: 48rem)" srcset="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=1200&q=80">
-                                <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=900&q=80" alt="Участники клубного события обсуждают идеи и общаются после выступления" width="1600" height="1067" sizes="(min-width: 64rem) 42vw, 100vw" loading="lazy" decoding="async">
-                            </picture>
-                        </figure>
-
-                        <div class="stats-panel" data-reveal>
-                            <article class="stat-card">
-                                <strong>100+</strong>
-                                <p>участников собирают наши ключевые открытые форматы</p>
-                            </article>
-                            <article class="stat-card">
-                                <strong>50+</strong>
-                                <p>спикеров, экспертов и гостей усилили сезон практическими темами</p>
-                            </article>
-                            <article class="stat-card">
-                                <strong>20+</strong>
-                                <p>партнёрств, коллабораций и форматов дали клубу новый масштаб</p>
-                            </article>
-                        </div>
-
-                        <article class="directions-panel" data-reveal>
-                            <p class="section-tag">Направления</p>
-                            <h3 class="title-stack title-stack--panel">
-                                <span>Мы работаем</span>
-                                <span>в четырёх</span>
-                                <span>направлениях</span>
-                            </h3>
-                            <ol class="focus-list">
-                                <li>IT</li>
-                                <li>Маркетинг</li>
-                                <li>Дизайн</li>
-                                <li>Продакт-менеджмент</li>
-                            </ol>
-                            <p>У каждого направления своя роль, но вместе они собирают один цельный продукт и одно сильное сообщество.</p>
+                        <article class="metric-card">
+                            <strong>20+</strong>
+                            <p>
+                                <span>партнёрств уже</span>
+                                <span>реализовано</span>
+                            </p>
                         </article>
                     </div>
                 </div>
             </section>
+
+            <div class="section-transition section-transition--metrics-departments" aria-hidden="true">
+                <img class="section-transition__wave section-transition__wave--left" src="../static/media/wave-left.png" alt="" width="1280" height="812">
+                <img class="section-transition__wave section-transition__wave--right" src="../static/media/section-vectors.png" alt="" width="1280" height="791">
+            </div>
 
             <section class="section departments" id="departments">
                 <div class="container">
@@ -272,6 +258,11 @@
                 </div>
             </section>
 
+            <div class="section-transition section-transition--departments-events" aria-hidden="true">
+                <img class="section-transition__wave section-transition__wave--left" src="../static/media/wave-left.png" alt="" width="1280" height="812">
+                <img class="section-transition__wave section-transition__wave--right" src="../static/media/section-vectors.png" alt="" width="1280" height="791">
+            </div>
+
             <section class="section events" id="events">
                 <div class="container events__layout">
                     <div class="section-copy events__copy" data-reveal>
@@ -332,58 +323,75 @@
                 </div>
             </section>
 
-            <section class="section faq" id="faq">
-                <div class="container faq__layout">
-                    <div class="section-copy faq__copy" data-reveal>
-                        <p class="section-tag">FAQ</p>
-                        <h2 class="title-stack title-stack--faq">
-                            <span>FAQ</span>
-                        </h2>
-                        <p>
-                            Если не нашёл своего вопроса, проще всего написать нам напрямую в Telegram:
-                            подскажем по мероприятиям, набору и тому, как влиться в команду.
-                        </p>
-                    </div>
+            <div class="section-transition section-transition--events-faq" aria-hidden="true">
+                <img class="section-transition__wave section-transition__wave--left" src="../static/media/wave-left.png" alt="" width="1280" height="812">
+                <img class="section-transition__wave section-transition__wave--right" src="../static/media/wave-right.png" alt="" width="1128" height="812">
+            </div>
 
-                    <div class="faq__items">
-                        <details class="faq-item" data-reveal>
-                            <summary>Можно ли приходить студентам других вузов?</summary>
-                            <p>Да. Клуб открыт не только для студентов Политеха: к нам приходят и студенты других вузов Санкт-Петербурга.</p>
-                        </details>
-                        <details class="faq-item" data-reveal>
-                            <summary>Как попасть на мероприятие?</summary>
-                            <p>Следи за анонсами в Telegram и ВКонтакте, затем проходи регистрацию по ссылке в афише.</p>
-                        </details>
-                        <details class="faq-item" data-reveal>
-                            <summary>Какая продолжительность мероприятия?</summary>
-                            <p>Обычно от полутора до трёх часов, в зависимости от формата: лекция, форум, игра или нетворкинг.</p>
-                        </details>
-                        <details class="faq-item" data-reveal>
-                            <summary>Можно ли приходить с друзьями?</summary>
-                            <p>Да, если в анонсе нет специальных ограничений по регистрации. Мы только за сильную компанию.</p>
-                        </details>
-                        <details class="faq-item" data-reveal>
-                            <summary>Как попасть в команду?</summary>
-                            <p>Напиши нам в Telegram: расскажем, какие направления сейчас в фокусе и как лучше зайти в клуб.</p>
-                        </details>
+            <section class="section faq" id="faq">
+                <div class="container">
+                    <div class="faq__shell">
+                        <div class="faq__header" data-reveal>
+                            <span class="faq__top-line" aria-hidden="true"></span>
+                            <h2 class="title-stack title-stack--faq" id="faq-title">
+                                <span>FAQ</span>
+                            </h2>
+                        </div>
+
+                        <img class="faq__wave" src="../static/media/section-vectors.png" alt="" width="1280" height="791" aria-hidden="true">
+
+                        <div class="faq__items">
+                            <details class="faq-item" data-reveal open>
+                                <summary>Какая продолжительность мероприятия?</summary>
+                                <p>Обычно от полутора до трёх часов, в зависимости от формата: лекция, форум, игра или нетворкинг.</p>
+                            </details>
+                            <details class="faq-item" data-reveal>
+                                <summary>Можно ли приходить студентам других вузов?</summary>
+                                <p>Да. Клуб открыт не только для студентов Политеха: к нам приходят и студенты других вузов Санкт-Петербурга.</p>
+                            </details>
+                            <details class="faq-item" data-reveal>
+                                <summary>Можно ли приходить с друзьями?</summary>
+                                <p>Да, если в анонсе нет специальных ограничений по регистрации. Мы только за сильную компанию.</p>
+                            </details>
+                            <details class="faq-item" data-reveal>
+                                <summary>Как попасть на мероприятие?</summary>
+                                <p>Следи за анонсами в Telegram и ВКонтакте, затем проходи регистрацию по ссылке в афише.</p>
+                            </details>
+                            <details class="faq-item" data-reveal>
+                                <summary>А как можно попасть к нам в команду?</summary>
+                                <p>Напиши нам в Telegram: расскажем, какие направления сейчас в фокусе и как лучше зайти в клуб.</p>
+                            </details>
+                        </div>
                     </div>
                 </div>
             </section>
 
+            <div class="section-transition section-transition--faq-cta" aria-hidden="true">
+                <img class="section-transition__wave section-transition__wave--left" src="../static/media/wave-left.png" alt="" width="1280" height="812">
+                <img class="section-transition__wave section-transition__wave--right" src="../static/media/wave-right.png" alt="" width="1128" height="812">
+            </div>
+
             <section class="section cta" id="contact">
                 <div class="container">
                     <div class="cta__shell" data-reveal>
-                        <p class="section-tag">Контакты</p>
-                        <h2 class="title-stack title-stack--cta">
-                            <span>Вступай</span>
-                            <span>в Бизнес-клуб</span>
-                            <span>СПБПУ!</span>
-                        </h2>
-                        <p>Выбери удобный канал и напиши нам. Подскажем, как попасть на событие или влиться в команду.</p>
-                        <div class="cta__actions">
-                            <a class="button button--ghost" href="https://vk.com/businessclub_spbpu" target="_blank" rel="noopener noreferrer">ВКонтакте</a>
-                            <a class="button button--primary" href="https://t.me/mmmmras" target="_blank" rel="noopener noreferrer">Telegram</a>
-                            <a class="button button--ghost" href="https://ekp-events.timepad.ru/" target="_blank" rel="noopener noreferrer">Афиша</a>
+                        <img class="cta__glow-mark" src="../static/media/cta-logo-glow.png" alt="" width="800" height="800" aria-hidden="true">
+
+                        <div class="cta__copy">
+                            <h2 class="title-stack title-stack--cta">
+                                <span>ВСТУПАЙ</span>
+                                <span>В БИЗНЕС-КЛУБ</span>
+                                <span>СПБПУ!</span>
+                            </h2>
+
+                            <p class="cta__lead">Выбери удобный канал и напиши нам. Подскажем, как попасть на событие или влиться в команду.</p>
+
+                            <div class="cta__actions">
+                                <a class="button button--ghost" href="https://vk.com/businessclub_spbpu" target="_blank" rel="noopener noreferrer">ВКонтакте</a>
+                                <a class="button button--ghost button--glow" href="https://t.me/economicclubru" target="_blank" rel="noopener noreferrer">Telegram</a>
+                                <a class="button button--ghost" href="mailto:businessclub.spbpu@gmail.com">Email</a>
+                            </div>
+
+                            <p class="cta__hint">Здесь мы публикуем самые актуальные новости и анонсы клуба.</p>
                         </div>
                     </div>
                 </div>
@@ -392,7 +400,6 @@
 
         <footer class="site-footer">
             <div class="container site-footer__inner">
-                <p>Бизнес-клуб СПбПУ <span id="year"></span></p>
                 <div class="site-footer__links">
                     <a href="#about">О клубе</a>
                     <a href="#departments">Отделы</a>
@@ -400,6 +407,26 @@
                     <a href="#faq">FAQ</a>
                     <a href="#contact">Контакты</a>
                 </div>
+
+                <div class="site-footer__socials" aria-label="Социальные сети">
+                    <span class="icon-link icon-link--footer icon-link--passive" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M7 2.4h10A4.6 4.6 0 0 1 21.6 7v10a4.6 4.6 0 0 1-4.6 4.6H7A4.6 4.6 0 0 1 2.4 17V7A4.6 4.6 0 0 1 7 2.4Zm0 1.9A2.7 2.7 0 0 0 4.3 7v10A2.7 2.7 0 0 0 7 19.7h10a2.7 2.7 0 0 0 2.7-2.7V7A2.7 2.7 0 0 0 17 4.3Zm5 2.4A5.3 5.3 0 1 1 6.7 12 5.3 5.3 0 0 1 12 6.7Zm0 1.9A3.4 3.4 0 1 0 15.4 12 3.4 3.4 0 0 0 12 8.6Zm5.2-3a1.3 1.3 0 1 1-1.3 1.3 1.3 1.3 0 0 1 1.3-1.3Z"/>
+                        </svg>
+                    </span>
+                    <a class="icon-link icon-link--footer" href="https://vk.com/businessclub_spbpu" target="_blank" rel="noopener noreferrer" aria-label="ВКонтакте">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M12.8 17.5c-5 0-7.8-3.4-7.9-8.9h2.5c.1 4 1.9 5.8 3.3 6.1V8.6H13V12c1.4-.2 2.9-1.8 3.4-3.4h2.4c-.5 2.1-2.1 3.7-3.2 4.3 1.2.5 3 2 3.7 4.6h-2.5c-.6-1.7-2-3-3.8-3.2v3.2Z"/>
+                        </svg>
+                    </a>
+                    <a class="icon-link icon-link--footer" href="https://t.me/economicclubru" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M20.4 4.4 3.9 10.8a.85.85 0 0 0 .05 1.6l4.2 1.2 1.6 4.7a.85.85 0 0 0 1.48.28l2.44-3.18 4.2 3.04a.85.85 0 0 0 1.33-.53l2.5-12.67a.85.85 0 0 0-1.15-.91Z"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <p class="site-footer__copyright">Бизнес-клуб СПбПУ <span id="year"></span></p>
             </div>
         </footer>
     </div>
